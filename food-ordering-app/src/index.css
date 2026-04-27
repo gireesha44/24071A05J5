@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f9f9f7;
+  --bg-card: #ffffff;
+  --bg-hover: #f3f3f0;
+  --border: #e5e5e0;
+  --text-primary: #111110;
+  --text-secondary: #6b6b68;
+  --text-muted: #a3a3a0;
+  --accent: #1a1a18;
+  --accent2: #e8522a;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+  --shadow: 0 2px 12px rgba(0,0,0,0.09);
+  --transition: all 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; font-family: 'Inter', sans-serif; }
+input, textarea, select { font-family: 'Inter', sans-serif; outline: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* Layout */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.page-wrapper { padding-top: 64px; min-height: 100vh; }
+
+/* Buttons */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--accent);
+}
+.btn-primary:hover { background: #2a2a28; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-outline:hover { border-color: var(--text-primary); background: var(--bg-hover); }
+
+.btn-danger {
+  background: transparent;
+  color: #e8522a;
+  border: 1.5px solid #e8d0c8;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-danger:hover { background: #fdf1ed; }
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tag / chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.chip.spicy { background: #fdf1ed; color: #e8522a; border-color: #f4cbbf; }
+.chip.veg   { background: #edfaf3; color: #1a9e55; border-color: #b6e8cc; }
+.chip.pop   { background: #faf6ed; color: #9e6b1a; border-color: #e8d5b0; }
+
+/* Section */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.section-sub {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Divider */
+.divider { height: 1px; background: var(--border); }
+
+/* Field error */
+.field-error { font-size: 12px; color: #e8522a; font-weight: 500; margin-top: 3px; }
+
+/* Spinner */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+.spinner-dark {
+  border-color: rgba(0,0,0,0.15);
+  border-top-color: var(--text-primary);
+}
+
+/* Animations */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.fade-up { animation: fadeUp 0.4s ease forwards; }
+.fade-in { animation: fadeIn 0.3s ease forwards; }
